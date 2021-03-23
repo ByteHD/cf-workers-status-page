@@ -1,6 +1,6 @@
 settings:
-  title: 'Status Page'
-  url: 'https://status-page.eidam.dev' # used for Slack messages
+  title: 'Peer Studios Status'
+  url: 'https://status.peerstudios.net' # used for Slack messages
   logo: logo-192x192.png # image in ./public/ folder
   daysInHistogram: 90 # number of days you want to display in histogram
   collectResponseTimes: true # collects avg response times from CRON locations
@@ -15,23 +15,43 @@ settings:
   dayInHistogramNotOperational: ' incident(s)' # xx incident(s) recorded
 
 monitors:
-  - id: workers-cloudflare-com # unique identifier
-    name: workers.cloudflare.com
-    description: 'You write code. They handle the rest.' # default=empty
-    url: 'https://workers.cloudflare.com/' # URL to fetch
-    method: GET # default=GET
-    expectStatus: 200 # operational status, default=200
-    followRedirect: false # should fetch follow redirects, default=false
-
-  - id: www-cloudflare-com
-    name: www.cloudflare.com
-    description: 'Built for anything connected to the Internet.'
-    url: 'https://www.cloudflare.com'
+  - id: peerstudios.net
+    name: Peer Studios
+    description: 'Peer Studios main server'
+    url: 'https://peerstudios.net/'
     method: GET
     expectStatus: 200
+    followRedirect: false
 
-  - id: blog-cloudflare-com
-    name: The Cloudflare Blog
-    url: 'https://blog.cloudflare.com/'
+  - id: chimu.moe
+    name: Chimu frontend
+    description: 'chimu.moe osu! beatmap mirror'
+    url: 'https://chimu.moe/'
     method: GET
     expectStatus: 200
+    followRedirect: true
+    
+  - id: api.chimu.moe
+    name: Chimu API
+    description: 'chimu.moe osu! beatmap mirror'
+    url: 'https://api.chimu.moe/'
+    method: GET
+    expectStatus: 200
+    followRedirect: true
+
+  - id: enjuu.click
+    name: Enjuu frontend
+    description: 'Enjuu osu! private server'
+    url: 'https://enjuu.click/'
+    method: GET
+    expectStatus: 200
+    followRedirect: false
+
+  - id: c.enjuu.click
+    name: Enjuu backend
+    description: 'Enjuu osu! private server'
+    url: 'https://c.enjuu.click/'
+    method: GET
+    expectStatus: 200
+    followRedirect: false
+
